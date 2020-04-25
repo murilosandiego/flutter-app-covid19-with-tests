@@ -37,6 +37,6 @@ abstract class _HomeControllerBase with Store {
   Future<void> fetchAll({forceRefresh: false}) {
     fetch(country: 'brazil', forceRefresh: true);
     fetchStates(forceRefresh: forceRefresh);
-    return null;
+    return Future.delayed(Duration(microseconds: 100));
   }
 }
