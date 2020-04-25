@@ -1,0 +1,2 @@
+lib/app/modules/home/widgets/map/map_widget.dart
+test/app/modules/home/widgets/map/map_widget_test.dart

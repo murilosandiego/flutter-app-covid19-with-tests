@@ -1,0 +1,42 @@
+import 'package:mobx/mobx.dart';
+
+import 'models/covid.dart';
+import 'models/covid_state.dart';
+import 'repositories/covid_repository.dart';
+
+part 'home_controller.g.dart';
+
+class HomeController = _HomeControllerBase with _$HomeController;
+
+abstract class _HomeControllerBase with Store {
+  final CovidRepository _covidRepository;
+
+  _HomeControllerBase(this._covidRepository) {
+    fetchAll();
+  }
+
+  @observable
+  ObservableFuture<Covid> covid;
+
+  @observable
+  ObservableFuture<List<CovidState>> covidStates;
+
+  @action
+  fetch({String country = 'brazil', forceRefresh = false}) async {
+    covid = _covidRepository
+        .getByCountry(country: country, forceRefresh: forceRefresh)
+        .asObservable();
+  }
+
+  @action
+  fetchStates({forceRefresh = false}) async {
+    covidStates =
+        _covidRepository.getByStates(forceRefresh: forceRefresh).asObservable();
+  }
+
+  Future<void> fetchAll({forceRefresh: false}) {
+    fetch(country: 'brazil', forceRefresh: true);
+    fetchStates(forceRefresh: forceRefresh);
+    return null;
+  }
+}
