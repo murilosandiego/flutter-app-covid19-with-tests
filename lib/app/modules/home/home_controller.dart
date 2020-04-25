@@ -2,14 +2,14 @@ import 'package:mobx/mobx.dart';
 
 import 'models/covid.dart';
 import 'models/covid_state.dart';
-import 'repositories/covid_repository.dart';
+import 'repositories/covid_repository_interface.dart';
 
 part 'home_controller.g.dart';
 
 class HomeController = _HomeControllerBase with _$HomeController;
 
 abstract class _HomeControllerBase with Store {
-  final CovidRepository _covidRepository;
+  final ICovidRepository _covidRepository;
 
   _HomeControllerBase(this._covidRepository) {
     fetchAll();

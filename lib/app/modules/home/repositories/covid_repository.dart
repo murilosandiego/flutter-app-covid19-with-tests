@@ -1,3 +1,4 @@
+import 'package:covid_19/app/modules/home/repositories/covid_repository_interface.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_http_cache/dio_http_cache.dart';
 
@@ -7,7 +8,7 @@ import '../models/covid.dart';
 import '../models/covid_state.dart';
 import '../services/custom_dio_service.dart';
 
-class CovidRepository {
+class CovidRepository implements ICovidRepository {
   final CustomDioService client;
 
   CovidRepository(this.client);
