@@ -1,4 +1,4 @@
-import 'package:covid_19/app/modules/shared/exceptions/server_exception.dart';
+import 'package:covid_19/app/shared/exceptions/server_exception.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

@@ -1,6 +1,6 @@
-import '../../shared/constants/app_constants.dart';
-import '../models/covid.dart';
-import '../models/covid_state.dart';
+import '../../../../shared/constants/app_constants.dart';
+import '../../models/covid.dart';
+import '../../models/covid_state.dart';
 
 abstract class ICovidRepository {
   Future<Covid> getByCountry(

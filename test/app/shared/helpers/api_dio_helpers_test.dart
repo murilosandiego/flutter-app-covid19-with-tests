@@ -1,6 +1,5 @@
 import 'dart:convert';
-import 'package:covid_19/app/modules/shared/exceptions/server_exception.dart';
-import 'package:covid_19/app/modules/shared/helpers/api_dio_helper.dart';
+import 'package:covid_19/app/shared/helpers/api_dio_helper.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:dio/dio.dart';
 import 'package:mockito/mockito.dart';

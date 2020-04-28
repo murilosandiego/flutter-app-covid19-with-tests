@@ -1,9 +1,8 @@
 import 'package:covid_19/app/modules/home/models/covid.dart';
 import 'package:covid_19/app/modules/home/models/covid_state.dart';
-import 'package:covid_19/app/modules/shared/constants/api_constants.dart';
-import 'package:covid_19/app/modules/shared/constants/app_constants.dart';
-import 'package:covid_19/app/modules/shared/helpers/api_dio_helper.dart';
-import 'package:flutter/foundation.dart' show listEquals;
+import 'package:covid_19/app/shared/constants/api_constants.dart';
+import 'package:covid_19/app/shared/constants/app_constants.dart';
+import 'package:covid_19/app/shared/helpers/api_dio_helper.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:dio/dio.dart';
@@ -19,8 +18,6 @@ class APIDioHelperMock extends Mock implements APIDioHelper {
 void main() {
   APIDioHelperMock client;
   CovidRepository repository;
-  Map defaulResponse;
-  Covid defaultCovid;
 
   setUp(() {
     final Dio dio = Dio();

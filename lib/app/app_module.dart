@@ -1,4 +1,4 @@
-import 'package:covid_19/app/modules/shared/helpers/api_dio_helper.dart';
+import 'package:covid_19/app/shared/helpers/api_dio_helper.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';

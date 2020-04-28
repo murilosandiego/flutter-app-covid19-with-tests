@@ -1,13 +1,9 @@
-import 'package:covid_19/app/modules/home/repositories/covid_repository_interface.dart';
-import 'package:covid_19/app/modules/shared/helpers/api_dio_helper.dart';
-import 'package:dio/dio.dart';
-import 'package:dio_http_cache/dio_http_cache.dart';
-
-import '../../shared/constants/api_constants.dart' as api;
-import '../../shared/constants/app_constants.dart';
+import '../../../shared/constants/api_constants.dart' as api;
+import '../../../shared/constants/app_constants.dart';
+import '../../../shared/helpers/api_dio_helper.dart';
 import '../models/covid.dart';
 import '../models/covid_state.dart';
-import '../services/custom_dio_service.dart';
+import 'interfaces/covid_repository_interface.dart';
 
 class CovidRepository implements ICovidRepository {
   final APIDioHelper _client;
