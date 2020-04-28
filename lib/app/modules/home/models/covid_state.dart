@@ -85,4 +85,35 @@ class CovidState {
   String toString() {
     return 'CovidState(uid: $uid, uf: $uf, state: $state, cases: $cases, deaths: $deaths, suspects: $suspects, refuses: $refuses, datetime: $datetime, lat: $lat, log: $log)';
   }
+
+  @override
+  bool operator ==(Object o) {
+    if (identical(this, o)) return true;
+
+    return o is CovidState &&
+        o.uid == uid &&
+        o.uf == uf &&
+        o.state == state &&
+        o.cases == cases &&
+        o.deaths == deaths &&
+        o.suspects == suspects &&
+        o.refuses == refuses &&
+        o.datetime == datetime &&
+        o.lat == lat &&
+        o.log == log;
+  }
+
+  @override
+  int get hashCode {
+    return uid.hashCode ^
+        uf.hashCode ^
+        state.hashCode ^
+        cases.hashCode ^
+        deaths.hashCode ^
+        suspects.hashCode ^
+        refuses.hashCode ^
+        datetime.hashCode ^
+        lat.hashCode ^
+        log.hashCode;
+  }
 }

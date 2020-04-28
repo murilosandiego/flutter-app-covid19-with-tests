@@ -4,17 +4,19 @@
 
 import 'dart:convert';
 
+import 'package:equatable/equatable.dart';
+
 Covid covidFromJson(String str) => Covid.fromMap(json.decode(str));
 
 String covidToJson(Covid data) => json.encode(data.toMap());
 
 class Covid {
-  String country;
-  int cases;
-  int confirmed;
-  int deaths;
-  int recovered;
-  DateTime updatedAt;
+  final String country;
+  final int cases;
+  final int confirmed;
+  final int deaths;
+  final int recovered;
+  final DateTime updatedAt;
 
   Covid({
     this.country,
@@ -59,4 +61,42 @@ class Covid {
         "recovered": recovered,
         "updated_at": updatedAt.toIso8601String(),
       };
+
+  // @override
+  // List<Object> get props => [
+  //       country,
+  //       cases,
+  //       confirmed,
+  //       deaths,
+  //       recovered,
+  //       updatedAt,
+  //     ];
+
+  @override
+  String toString() {
+    return 'Covid(country: $country, cases: $cases, confirmed: $confirmed, deaths: $deaths, recovered: $recovered, updatedAt: $updatedAt)';
+  }
+
+  @override
+  bool operator ==(Object o) {
+    if (identical(this, o)) return true;
+
+    return o is Covid &&
+        o.country == country &&
+        o.cases == cases &&
+        o.confirmed == confirmed &&
+        o.deaths == deaths &&
+        o.recovered == recovered &&
+        o.updatedAt == updatedAt;
+  }
+
+  @override
+  int get hashCode {
+    return country.hashCode ^
+        cases.hashCode ^
+        confirmed.hashCode ^
+        deaths.hashCode ^
+        recovered.hashCode ^
+        updatedAt.hashCode;
+  }
 }
