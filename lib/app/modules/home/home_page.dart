@@ -41,7 +41,15 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               color: Colors.black,
             ),
             onPressed: () => controller.fetchAll(forceRefresh: true),
-          )
+          ),
+          IconButton(
+              icon: Icon(
+                Icons.access_time,
+                color: Colors.black,
+              ),
+              onPressed: () {
+                Modular.to.pushNamed('/github');
+              })
         ],
       ),
       backgroundColor: Colors.white,

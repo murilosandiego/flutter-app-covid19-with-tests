@@ -5,8 +5,9 @@ import 'package:dio/dio.dart';
 import 'package:meta/meta.dart' show required;
 
 import '../constants/api_constants.dart';
+import 'interfaces/api_helper_interface.dart';
 
-class APIDioHelper {
+class APIDioHelper implements IAPIHelper {
   final Dio dio;
 
   APIDioHelper({@required this.dio}) {

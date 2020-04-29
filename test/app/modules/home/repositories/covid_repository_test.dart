@@ -2,18 +2,13 @@ import 'package:covid_19/app/modules/home/models/covid.dart';
 import 'package:covid_19/app/modules/home/models/covid_state.dart';
 import 'package:covid_19/app/shared/constants/api_constants.dart';
 import 'package:covid_19/app/shared/constants/app_constants.dart';
-import 'package:covid_19/app/shared/helpers/api_dio_helper.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:dio/dio.dart';
-import 'package:meta/meta.dart' show required;
 
 import 'package:covid_19/app/modules/home/repositories/covid_repository.dart';
 
-class APIDioHelperMock extends Mock implements APIDioHelper {
-  final Dio dio;
-  APIDioHelperMock({@required this.dio});
-}
+import '../mocks.dart';
 
 void main() {
   APIDioHelperMock client;
@@ -26,32 +21,33 @@ void main() {
   });
 
   group('CovidRepository', () {
-    const String DEFAULT_GET_URL = '$GET_BY_COUNTRY/$BRASIL';
-
-    const defaulResponse = {
-      "data": {
-        "country": "Brazil",
-        "cases": 16026,
-        "confirmed": 40743,
-        "deaths": 2587,
-        "recovered": 22130,
-        "updated_at": "2020-04-21T00:30:31.000Z"
-      }
-    };
-    final defaultCovid = Covid(
-      country: "Brazil",
-      cases: 16026,
-      confirmed: 40743,
-      deaths: 2587,
-      recovered: 22130,
-      updatedAt: DateTime.parse("2020-04-21T00:30:31.000Z"),
-    );
     test("should have a instace of CovidRepository", () {
       expect(repository, isInstanceOf<CovidRepository>());
     });
 
     group('getByCountry method', () {
+      const String DEFAULT_GET_URL = '$GET_BY_COUNTRY/$BRASIL';
+
       test('should return a Covid model', () async {
+        const defaulResponse = {
+          "data": {
+            "country": "Brazil",
+            "cases": 16026,
+            "confirmed": 40743,
+            "deaths": 2587,
+            "recovered": 22130,
+            "updated_at": "2020-04-21T00:30:31.000Z"
+          }
+        };
+        final defaultCovid = Covid(
+          country: "Brazil",
+          cases: 16026,
+          confirmed: 40743,
+          deaths: 2587,
+          recovered: 22130,
+          updatedAt: DateTime.parse("2020-04-21T00:30:31.000Z"),
+        );
+
         when(client.get(DEFAULT_GET_URL))
             .thenAnswer((_) async => defaulResponse);
 

@@ -4,8 +4,6 @@
 
 import 'dart:convert';
 
-import 'package:equatable/equatable.dart';
-
 Covid covidFromJson(String str) => Covid.fromMap(json.decode(str));
 
 String covidToJson(Covid data) => json.encode(data.toMap());
