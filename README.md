@@ -1,4 +1,4 @@
-# Covid-19 Brasil
+# Flutter APP Covid-19 With Tests
 
 [![Build Status](https://travis-ci.org/murilosandiego/flutter-covid19-brasil.svg?branch=master)](https://travis-ci.org/murilosandiego/flutter-covid19-brasil)
 [![Coverage Status](https://coveralls.io/repos/github/murilosandiego/flutter-covid19-brasil/badge.svg)](https://coveralls.io/github/murilosandiego/flutter-covid19-brasil)
