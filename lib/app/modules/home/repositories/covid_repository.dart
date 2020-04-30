@@ -28,8 +28,6 @@ class CovidRepository implements ICovidRepository {
     try {
       final response = await _client.get(
         '${api.GET_BY_COUNTRY}',
-        // options:
-        //     buildCacheOptions(Duration(hours: 1), forceRefresh: forceRefresh),
       );
 
       List<CovidState> covids =

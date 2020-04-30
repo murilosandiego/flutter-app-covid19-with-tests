@@ -9,11 +9,9 @@ part 'home_controller.g.dart';
 class HomeController = _HomeControllerBase with _$HomeController;
 
 abstract class _HomeControllerBase with Store {
-  final ICovidRepository _covidRepository;
+  ICovidRepository _covidRepository;
 
-  _HomeControllerBase(this._covidRepository) {
-    fetchAll();
-  }
+  _HomeControllerBase(this._covidRepository);
 
   @observable
   ObservableFuture<Covid> covid;

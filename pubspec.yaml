@@ -17,12 +17,10 @@ environment:
   sdk: ">=2.3.0 <3.0.0"
 
 dependencies:
-  github: ^6.2.2
   intl: ^0.16.1
   map_markers: ^0.1.0
   flutter_map:
   latlong: ^0.6.1
-  dio_http_cache: ^0.2.6
   dio: ^3.0.9
   flutter_mobx: ^1.1.0
   mobx: ^1.1.1

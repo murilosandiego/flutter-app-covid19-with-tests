@@ -190,13 +190,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.9"
-  dio_http_cache:
-    dependency: "direct main"
-    description:
-      name: dio_http_cache
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.6"
   fixnum:
     dependency: transitive
     description:
@@ -256,13 +249,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  github:
-    dependency: "direct main"
-    description:
-      name: github
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "6.2.2"
   glob:
     dependency: transitive
     description:
@@ -340,13 +326,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
-  json_serializable:
-    dependency: transitive
-    description:
-      name: json_serializable
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.3.0"
   latlong:
     dependency: "direct main"
     description:

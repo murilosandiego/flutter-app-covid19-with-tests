@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:intl/intl.dart';
+import 'package:mobx/mobx.dart';
 
 import 'home_controller.dart';
 import 'models/covid.dart';
@@ -19,6 +20,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends ModularState<HomePage, HomeController> {
+  @override
+  void initState() {
+    super.initState();
+    autorun((_) {
+      controller.fetch();
+      controller.fetchStates();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,15 +51,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               color: Colors.black,
             ),
             onPressed: () => controller.fetchAll(forceRefresh: true),
-          ),
-          IconButton(
-              icon: Icon(
-                Icons.access_time,
-                color: Colors.black,
-              ),
-              onPressed: () {
-                Modular.to.pushNamed('/github');
-              })
+          )
         ],
       ),
       backgroundColor: Colors.white,
@@ -60,11 +62,26 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   Widget _home(BuildContext context) {
     return Observer(
       builder: (_) {
-        if (controller.covidStates.value == null ||
-            controller.covid.value == null) {
+        if (controller.covidStates.status == FutureStatus.pending ||
+            controller.covid.status == FutureStatus.pending) {
           return Center(
             child: CircularProgressIndicator(),
           );
+        }
+
+        if (controller.covidStates.status == FutureStatus.rejected &&
+            controller.covid.status == FutureStatus.rejected) {
+          return Center(
+              child: RaisedButton(
+            color: Colors.redAccent,
+            onPressed: controller.fetch,
+            child: Text(
+              'Error! Buscar novamente',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ));
         }
 
         List<CovidState> covidsStates = controller.covidStates.value;
