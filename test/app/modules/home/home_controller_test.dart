@@ -1,9 +1,5 @@
-import 'package:covid_19/app/app_module.dart';
 import 'package:covid_19/app/modules/home/models/covid.dart';
-import 'package:covid_19/app/modules/home/repositories/covid_repository.dart';
 import 'package:covid_19/app/modules/home/repositories/interfaces/covid_repository_interface.dart';
-import 'package:covid_19/app/shared/helpers/interfaces/api_helper_interface.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_modular/flutter_modular_test.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -24,10 +20,9 @@ void main() {
   CovidRepositoryMock repositoryMock;
   HomeController homeController;
 
-  //
   setUp(() {
     repositoryMock = Modular.get<ICovidRepository>();
-    homeController = Modular.get();
+    homeController = Modular.get<HomeController>();
   });
 
   group('HomeController Test', () {

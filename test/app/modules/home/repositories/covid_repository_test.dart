@@ -1,23 +1,31 @@
+import 'package:covid_19/app/app_module.dart';
+import 'package:covid_19/app/modules/home/home_module.dart';
 import 'package:covid_19/app/modules/home/models/covid.dart';
 import 'package:covid_19/app/modules/home/models/covid_state.dart';
 import 'package:covid_19/app/shared/constants/api_constants.dart';
 import 'package:covid_19/app/shared/constants/app_constants.dart';
+import 'package:covid_19/app/shared/helpers/interfaces/api_helper_interface.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_modular/flutter_modular_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:dio/dio.dart';
 
 import 'package:covid_19/app/modules/home/repositories/covid_repository.dart';
 
 import '../mocks.dart';
 
 void main() {
+  initModule(AppModule(), changeBinds: [
+    Bind<IAPIHelper>((i) => APIDioHelperMock(dio: i.get())),
+  ]);
+  initModule(HomeModule());
+
   APIDioHelperMock client;
   CovidRepository repository;
 
   setUp(() {
-    final Dio dio = Dio();
-    client = APIDioHelperMock(dio: dio);
-    repository = CovidRepository(client);
+    client = Modular.get<IAPIHelper>();
+    repository = Modular.get<CovidRepository>();
   });
 
   group('CovidRepository', () {
