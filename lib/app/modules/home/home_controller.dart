@@ -31,10 +31,4 @@ abstract class _HomeControllerBase with Store {
     covidStates =
         _covidRepository.getByStates(forceRefresh: forceRefresh).asObservable();
   }
-
-  Future<void> fetchAll({forceRefresh: false}) {
-    fetch(country: 'brazil', forceRefresh: true);
-    fetchStates(forceRefresh: forceRefresh);
-    return Future.delayed(Duration(microseconds: 100));
-  }
 }

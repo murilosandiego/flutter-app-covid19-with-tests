@@ -50,7 +50,10 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               Icons.refresh,
               color: Colors.black,
             ),
-            onPressed: () => controller.fetchAll(forceRefresh: true),
+            onPressed: () {
+              controller.fetch();
+              controller.fetchStates();
+            },
           )
         ],
       ),
@@ -91,28 +94,32 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             DateFormat('dd/MM/yyyy HH:mm').format(covid.updatedAt.toLocal());
 
         return RefreshIndicator(
-          child: SingleChildScrollView(
-            padding: EdgeInsets.all(16),
-            child: Column(
-              children: <Widget>[
-                Container(
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    'Atualizado em: $updatedAt',
-                    textAlign: TextAlign.left,
+            child: SingleChildScrollView(
+              padding: EdgeInsets.all(16),
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      'Atualizado em: $updatedAt',
+                      textAlign: TextAlign.left,
+                    ),
                   ),
-                ),
-                SizedBox(height: 8),
-                BoxsWidget(covid: covid),
-                SizedBox(height: 16),
-                TableStatesWidget(covidsStates: covidsStates),
-                SizedBox(height: 16),
-                MapWidget(covidsStates: covidsStates),
-              ],
+                  SizedBox(height: 8),
+                  BoxsWidget(covid: covid),
+                  SizedBox(height: 16),
+                  TableStatesWidget(covidsStates: covidsStates),
+                  SizedBox(height: 16),
+                  MapWidget(covidsStates: covidsStates),
+                ],
+              ),
             ),
-          ),
-          onRefresh: () => controller.fetchAll(forceRefresh: true),
-        );
+            onRefresh: () async {
+              {
+                controller.fetch();
+                controller.fetchStates();
+              }
+            });
       },
     );
   }

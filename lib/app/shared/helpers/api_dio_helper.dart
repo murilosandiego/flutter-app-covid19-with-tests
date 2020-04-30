@@ -32,13 +32,13 @@ class APIDioHelper implements IAPIHelper {
   Future<dynamic> get(String url) async {
     try {
       final response = await dio.get(url);
-      final String res = json.encode(response.data);
 
-      print('[API Dio Helper - GET] Server Response: $res');
+      // final String res = json.encode(response.data);
+      // print('[API Dio Helper - GET] Server Response: $res');
 
       return response.data;
     } on DioError catch (e) {
-      print('[API Dio Helper - GET] Connection Exception => ' + e.message);
+      // print('[API Dio Helper - GET] Connection Exception => ' + e.message);
 
       if (e?.response?.data != null) throw ServerException(e.response.data);
 
@@ -49,17 +49,17 @@ class APIDioHelper implements IAPIHelper {
   Future<dynamic> post(String url,
       {Map headers, @required body, encoding}) async {
     try {
-      print('[API Dio Helper - POST] Server Request: $body');
+      // print('[API Dio Helper - POST] Server Request: $body');
 
       final response =
           await dio.post(url, data: body, options: Options(headers: headers));
 
-      final String res = json.encode(response.data);
-      print('[API Dio Helper - POST] Server Response: ' + res);
+      // final String res = json.encode(response.data);
+      // print('[API Dio Helper - POST] Server Response: ' + res);
 
       return response.data;
     } on DioError catch (e) {
-      print('[API Dio Helper - POST] Connection Exception => ' + e.message);
+      // print('[API Dio Helper - POST] Connection Exception => ' + e.message);
 
       if (e?.response?.data != null) throw ServerException(e.response.data);
 
