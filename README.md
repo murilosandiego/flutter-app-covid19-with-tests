@@ -1,16 +1,28 @@
-# covid_19
+# Covid-19 Brasil
 
-A new Flutter project.
+[![Build Status](https://travis-ci.org/murilosandiego/flutter-covid19-brasil.svg?branch=master)](https://travis-ci.org/murilosandiego/flutter-covid19-brasil)
+[![Coverage Status](https://coveralls.io/repos/github/murilosandiego/flutter-covid19-brasil/badge.svg)](https://coveralls.io/github/murilosandiego/flutter-covid19-brasil)
 
-## Getting Started
+|                             |                             |                             |
+| :-------------------------- | :-------------------------: | :-------------------------: |
+| ![01](./screenshots/01.png) | ![02](./screenshots/02.png) | ![03](./screenshots/03.png) |
+|                             |                             |                             |
 
-This project is a starting point for a Flutter application.
+Um aplicativo simples feito em flutter utilizando MobX, Modular, Slidy, Mockito etc. Este App tem o íntuito de ajudar (eu inclusive) quem está iniciando a aplicar testes em seus aplicativos e para mostrar a importância de ficar em casa.
 
-A few resources to get you started if this is your first Flutter project:
+## Roadmap
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+| Teste      | Progresso |
+| :--------- | :-------: |
+| Unitários  |    ✅     |
+| Widgets    |    ☑️     |
+| Integração |    ☑️     |
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Pacotes e API:
+
+- [MobX](https://github.com/mobxjs/mobx.dart) para gerenciamento de estado.
+- [Modular](https://pub.dev/packages/flutter_modular) para arquitetura, injeção de dependências, controle de rotas etc.
+- [Slidy](https://pub.dev/packages/slidy) CLI para gerenciamento de pacotes e gerador de template.
+- [Mockito](https://pub.dev/packages/mockito) para mockar comportamentos faciliando os testes unitários.
+- [Dio](https://github.com/flutterchina/dio) para requisição http.
+- [API](https://github.com/devarthurribeiro/covid19-brazil-api) para consulta dos dados.
