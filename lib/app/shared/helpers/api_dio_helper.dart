@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import '../exceptions/server_exception.dart';
 import 'package:dio/dio.dart';
 import 'package:meta/meta.dart' show required;
